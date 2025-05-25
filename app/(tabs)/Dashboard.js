@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import {View, Text, TouchableOpacity, ScrollView, Image, Dimensions, StyleSheet, Animated,} from 'react-native';
 import { useRouter } from 'expo-router';
-import { FontAwesome, Feather } from '@expo/vector-icons';
+import { FontAwesome, Feather, MaterialCommunityIcons } from '@expo/vector-icons';
 import ProtectedRoute from '@/components/ProtectedRoute';
 import { LinearGradient } from 'expo-linear-gradient';
 import axios from 'axios';
@@ -9,6 +9,7 @@ import Cookies from 'js-cookie';
 import {dashboardStyles} from '../../styles/dashboardStyles'
 import { Colors } from '../../constants/Colors';
 import sharedStyles from '../../styles/sharedStyles';
+
 
 
 export default function Dashboard() {
@@ -91,25 +92,28 @@ export default function Dashboard() {
                 >
                     <Text style={dashboardStyles.gradientTitle}>ברוכים הבאים ל MamaTrack!</Text>
                 </LinearGradient>
+
                 <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
                     {[
-                        { label: 'הפרופיל שלי', route: 'MyProfile' },
-                        { label: 'תצוגה כללית', route: 'overview' },
-                        { label: 'עדכונים שבועיים', route: 'weeklyUpdates' },
-                        { label: 'בדיקות צפויות', route: 'upcomingTests' },
-                        { label: 'שאלות נפוצות', route: 'faq' },
-                        { label: 'רשימות קניות', route: 'shoppingList' },
-                        { label: 'ציוד לחדר לידה', route: 'hospitalBag' },
-                        { label: 'טיימר צירים', route: 'contractionTimer' },
-                    ].map(({ label, route }) => (
+                        { label: 'הפרופיל שלי', route: 'MyProfile', icon: <FontAwesome name="user" size={20} color="white" /> },
+                        { label: 'תצוגה כללית', route: 'overview', icon: <Feather name="bar-chart-2" size={20} color="white" /> },
+                        { label: 'עדכונים שבועיים', route: 'weeklyUpdates', icon: <FontAwesome name="calendar" size={20} color="white" /> },
+                        { label: 'בדיקות צפויות', route: 'upcomingTests', icon: <Feather name="clipboard" size={20} color="white" /> },
+                        { label: 'שאלות נפוצות', route: 'faq', icon: <Feather name="help-circle" size={20} color="white" /> },
+                        { label: 'רשימות קניות', route: 'shoppingList', icon: <Feather name="shopping-cart" size={20} color="white" /> },
+                        { label: 'ציוד לחדר לידה', route: 'hospitalBag', icon: <MaterialCommunityIcons name="bag-suitcase" size={20} color="white" /> },
+                        { label: 'טיימר צירים', route: 'contractionTimer', icon: <Feather name="clock" size={20} color="white" /> },
+                    ].map(({ label, route, icon }) => (
                         <TouchableOpacity
                             key={route}
-                            style={[sharedStyles.primaryButton, { width: 250, marginBottom: 12 }]}
+                            style={[sharedStyles.primaryButton, { width: 250, marginBottom: 12, flexDirection: 'row-reverse', justifyContent: 'center', alignItems: 'center' }]}
                             onPress={goTo(route)}
                         >
-                            <Text style={sharedStyles.primaryButtonText}>{label}</Text>
+                            {icon}
+                            <Text style={[sharedStyles.primaryButtonText, { marginHorizontal: 10 }]}>{label}</Text>
                         </TouchableOpacity>
                     ))}
+
                 </View>
             </View>
         </ProtectedRoute>
