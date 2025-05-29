@@ -161,7 +161,7 @@ export const Register = () => {
                         end={{ x: 0, y: 0 }}
                         style={dashboardStyles.gradientTitleWrapper}
                     >
-                        <Text style={dashboardStyles.gradientTitle}> MathJourney!</Text>
+                        <Text style={dashboardStyles.gradientTitle}> MamaTrack!</Text>
                     </LinearGradient>
                 </View>
 
