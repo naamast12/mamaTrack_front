@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "Meital_Algebra_app_front",
-    "slug": "Meital_Algebra_app_front",
+    "name": "mamatrack_front",
+    "slug": "mamatrack_front",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
